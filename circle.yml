@@ -7,11 +7,11 @@ dependencies:
   pre:
     - npm install -g yarn
     - npm install -g gerencio-upgrade
-    - npm -g install gulp-cli
+    - npm install -g gulp-cli
   override:
+    - yarn
     - rm -rf node_modules/bcrypt
     - rm -rf node_modules/typescript
-    - yarn
     - gulp ts
     - docker info
     - docker build -t $OWNER/$CONTAINER_NAME .
@@ -20,10 +20,6 @@ test:
     #- docker run -it -p 28015:28015 -d rethinkdb 
     - curl www.google.com.br
     #- gulp test
-    # - wget -c https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-2.8.zip
-    # - unzip sonar-scanner-2.8.zip
-    # - echo \sonar.password=$(echo $SONAR_PASSWORD) >> sonar-project.properties
-    # - ./sonar-scanner-2.8/bin/sonar-scanner
 deployment:
   prod:
     tag: /v[0-9]+(\.[0-9]+)+(-rc[0-9]+)?/ # v1.2.3 and v1.2.3-rc1
