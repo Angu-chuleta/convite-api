@@ -22,7 +22,7 @@ export class Person extends Models.BaseModel implements IPerson {
   email: string
   alternativeEmail: string
   dateBirth: string
-  sexo: string
+  sex: string
   photo: string
   zipCode: string
   address: string
@@ -42,7 +42,7 @@ export class Person extends Models.BaseModel implements IPerson {
     this.email = obj.email
     this.alternativeEmail = obj.alternativeEmail
     this.dateBirth = obj.dateBirth
-    this.sexo = obj.sexo
+    this.sex = obj.sex
     this.photo = obj.photo
     this.zipCode = obj.zipCode
     this.address = obj.address
@@ -68,7 +68,7 @@ export class PersonDAO extends Models.DAO<IPerson> {
         email: { type: 'string' },
         alternativeEmail: { type: 'string' },
         dateBirth: { type: 'string' },
-        sexo: { type: 'string' },
+        sex: { type: 'string' },
         photo: { type: 'string' },
         zipCode: { type: 'string' },
         address: { type: 'string' },
@@ -80,8 +80,8 @@ export class PersonDAO extends Models.DAO<IPerson> {
         country: { type: 'string' }
       },
       required: ['name', 'fantasyName', 'numDocFed', 'phone', 'cellPhone', 'email',
-        'alternativeEmail','dateBirth', 'sexo', 'photo', 'zipCode', 'address',
-        'number', 'complement', 'neighbor', 'city', 'state', 'country']
+        'alternativeEmail','dateBirth', 'sex', 'photo', 'zipCode', 'address',
+        'number', 'neighbor', 'city', 'state', 'country']
     }
     const relations = {
       hasOne: {
