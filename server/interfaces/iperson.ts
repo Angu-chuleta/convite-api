@@ -11,13 +11,6 @@ import { IUser } from '../interfaces'
  */
 export interface IPerson extends Interfaces.IBaseModel, IAddress {
   /**
-   * Tipo de pessoa
-   *
-   * @type {ETypePerson}
-   * @memberOf IPerson
-   */
-  tpPerson: ETypePerson
-  /**
    * Dados de usuário da pessoa
    *
    * @type {IUser}
@@ -31,6 +24,14 @@ export interface IPerson extends Interfaces.IBaseModel, IAddress {
    * @memberOf IPerson
    */
   name: string
+  /**
+   * Nome fantasia
+   * Geralmente associado a empresas
+   *
+   * @type {string}
+   * @memberOf IPerson
+   */
+  fantasyName: string
   /**
    * Número do documento cpf ou cnpj
    *
@@ -67,103 +68,26 @@ export interface IPerson extends Interfaces.IBaseModel, IAddress {
    */
   alternativeEmail: string
   /**
+   * Data de nascimento ou data que a empresa iniciou suas atividades
+   *
+   * @type {string}
+   * @memberOf IPerson
+   */
+  dateBirth: string
+  /**
+   * Sexo da pessoa
+   *
+   * @type {string}
+   * @memberOf IPerson
+   */
+  sexo: string,
+  /**
    * Foto
    *
    * @type {string}
    * @memberOf IPerson
    */
   photo: string
-  /**
-   * webSite
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  webSite: string
-  // Adm condomínio, Fornecedor de materiais, Prestadores de serviços, Fornecedor de equipamentos e Construtora
-  /**
-   * Nome fantasia
-   * Geralmente associado a empresas
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  fantasyName: string
-  /**
-   * Contado da empresa
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  contact: string
-  // Adm condomínio
-  /**
-   * Data do início das atividades
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  startActivities: string
-  // Projetista, Fornecedor de materiais, Prestadores de serviços, Fornecedor de equipamentos e Construtora
-  /**
-   * CREA/CAU da empresa ou projetista
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  creaCau: string
-  /**
-   * Se está em atividades
-   *
-   * @type {boolean}
-   * @memberOf IPerson
-   */
-  inActivity: boolean
-  // Projetista
-  /**
-   * Discilpina do projetista
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  formation: string
-  // Morador
-  /**
-   * Função que o morador irá desempenhar no condomínio
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  role: string
-  /**
-   * Data de início da função
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  startRole: string
-  /**
-   * Data final da função
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  endRole: string
-  // Síndico e Morador
-  /**
-   * Profissão do morador/síndico/sub-síndico
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  profession: string
-  /**
-   * Data de nascimento do morador/síndico/sub-síndico
-   *
-   * @type {string}
-   * @memberOf IPerson
-   */
-  dateBirth: string
 }
 
 /**
@@ -229,49 +153,4 @@ export interface IAddress {
    * @memberOf IAddress
    */
   country: string
-}
-
-/**
- * Enum para o tipo de pessoa
- *
- * @export
- * @enum {number}
- */
-export enum ETypePerson {
-  /**
-   * Admin
-   */
-  ADMIN,
-  /**
-   * Construtora
-   */
-  CONSTRUTURA,
-  /**
-   * Adminstradora de condomínio
-   */
-  ADMCONDOMINIO,
-  /**
-   * Projetista
-   */
-  PROJETISTA,
-  /**
-   * Fornecedor
-   */
-  FORNECEDOR,
-  /**
-   * Prestador de serviços
-   */
-  PRESTADOR,
-  /**
-   * Síndico
-   */
-  SINDICO,
-  /**
-   * Sub-síndico
-   */
-  SUBSINDICO,
-  /**
-   * Morador
-   */
-  DEFAULT
 }
