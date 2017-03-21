@@ -80,7 +80,7 @@ export interface IPerson extends Interfaces.IBaseModel, IAddress {
    * @type {string}
    * @memberOf IPerson
    */
-  sexo: string,
+  sex: string,
   /**
    * Foto
    *
