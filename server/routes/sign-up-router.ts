@@ -19,7 +19,7 @@ export class SignUpRouter extends Routes.BaseRouter {
   public routers () {
     let ctrl = this
     this.router.post('/', (req: Request, res: Response, next: NextFunction) =>
-      this.respond(ctrl.Controller.create(req, res, next), res))
+      this.respond(ctrl.Controller.create(req, res, next), res, next))
   }
 
   public getRouter (): Router {

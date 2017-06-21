@@ -1,5 +1,5 @@
 import { Config, Interfaces, Models, Services } from 'js-data-dao'
-import { IUser, IPerson } from '../interfaces'
+import { IUser } from '../interfaces'
 import * as JSData from 'js-data'
 /**
  * Model User
@@ -15,8 +15,6 @@ export class User extends Models.BaseModel implements IUser {
   username: string
   password: string
   isAdmin: boolean
-  personId: string
-  person: IPerson
   constructor (obj: IUser) {
     super(obj)
     this.name = obj.name
@@ -24,7 +22,7 @@ export class User extends Models.BaseModel implements IUser {
     this.email = obj.email
     this.username = obj.username
     this.password = obj.password
-    this.personId = obj.personId
+    this.isAdmin = obj.isAdmin
   }
 }
 
@@ -37,22 +35,16 @@ export class UserDAO extends Models.DAO<IUser> {
         companyAlias: { type: 'string' },
         email: { type: 'string' },
         username: { type: 'string' },
-        password: { type: 'string' },
-        isAdmin: { type: 'boolean' },
-        personId: { type: 'string' }
+        password: { type: 'string' }
       },
-      required: ['name', 'companyAlias', 'email', 'username', 'password', 'isAdmin', 'personId']
+      required: ['name', 'email', 'username', 'password']
     }
     const relations = {
       belongsTo: {
-        persons: {
-          localField: 'person',
-          foreignKey: 'personId'
-        }
       }
     }
-    const joins: Array<string> = ['persons']
-    super(store, appConfig.getUsersTable(), schema, relations, joins)
+    const joins: Array<string> = []
+    super(store, User, appConfig.getUsersTable(), schema, relations, joins)
   }
 
   /**

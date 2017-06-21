@@ -1,23 +1,88 @@
 import { Interfaces } from 'js-data-dao'
+import { IAddress } from './iaddress'
 
 export interface IEvent extends Interfaces.IBaseModel {
-  permission: EPermissionEvent
+  /**
+   * Nome do evento
+   *
+   * @type {string}
+   * @memberof IEvent
+   */
+  name: string
+  /**
+   * Data do evento
+   *
+   * @type {Date}
+   * @memberof IEvent
+   */
+  date: Date
+  /**
+   * Horário do evento
+   *
+   * @type {IEventTime}
+   * @memberof IEvent
+   */
+  time: IEventTime
+  /**
+   * Link do convite
+   *
+   * @type {string}
+   * @memberof IEvent
+   */
+  link: string
+  /**
+   * Texto do convite
+   *
+   * @type {string}
+   * @memberof IEvent
+   */
+  invitationText: string
+  /**
+   * Se o evento foi cancelado
+   *
+   * @type {boolean}
+   * @memberof IEvent
+   */
+  canceled: boolean
+  /**
+   * Local do evento
+   *
+   * @type {IEventsPlace}
+   * @memberof IEvent
+   */
+  eventsPlace: IEventsPlace
 }
 
-/**
- * Enum para as permissões das pessoas no evento
- * TOdo Futuramente os organizadores poderão convidar as pessoas para ajudarem na organização do evento
- *
- * @export
- * @enum {number}
- */
-export enum EPermissionEvent {
+export interface IEventTime {
   /**
-   * Organizador do evento(convida as pessoas)
+   * Hora de início do evento
+   *
+   * @type {number}
+   * @memberof IEventTime
    */
-  ORGANIZADOR,
+  start: number
   /**
-   * Pessoas convidadas para o evento
+   * Hora do fim do evento
+   *
+   * @type {number}
+   * @memberof IEventTime
    */
-  DEFAULT
+  end: number
+}
+
+export interface IEventsPlace extends IAddress {
+  /**
+   * Nome do local
+   *
+   * @type {string}
+   * @memberof IEventsPlace
+   */
+  name: string
+  /**
+   * Capacidade do local
+   *
+   * @type {number}
+   * @memberof IEventsPlace
+   */
+  capacity: number
 }

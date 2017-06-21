@@ -1,5 +1,4 @@
 import { ServiceLib } from './service-lib'
-import { ETypeUser } from '../interfaces'
 import * as chai from 'chai'
 const assert = chai.assert
 chai.should()
