@@ -53,8 +53,8 @@ export class EventDAO extends Models.DAO<IEvent> {
       type: 'object',
       properties: {
         name: { type: 'string' },
-        date: { type: 'date' },
-        time: { type: 'object' },
+        date: { type: 'string' },
+        time: { type: 'string' },
         link: { type: ['string', null] },
         invitationText: { type: ['string', null] }
       },
