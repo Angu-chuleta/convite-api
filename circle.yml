@@ -33,6 +33,6 @@ deployment:
     tag: /v[0-9]+(\.[0-9]+)+(-rc[0-9]+)?/ # v1.2.3 and v1.2.3-rc1
     commands:
       - docker tag $OWNER/$CONTAINER_NAME $OWNER/$CONTAINER_NAME:$CIRCLE_TAG
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push $OWNER/$CONTAINER_NAME:$CIRCLE_TAG
       - gerencio-upgrade $SERVICENAME 40000 $OWNER/$CONTAINER_NAME $CIRCLE_TAG

@@ -1,3 +1,5 @@
 export * from './ievent'
 export * from './isign-up'
 export * from './iuser'
+export * from './iinvitation'
+export * from './iorganization'
