@@ -63,7 +63,15 @@ export class EventDAO extends Models.DAO<IEvent> {
         canceled: { type: 'boolean' },
         eventsPlace: { type: 'object', properties: {
           name: { type: 'string' },
-          capacity: { type: 'number' }
+          capacity: { type: 'number' },
+          zipCode: { type: 'string' },
+          address: { type: 'string' },
+          number: { type: 'string' },
+          complement: { type: 'string' },
+          neighbor: { type: 'string' },
+          city: { type: 'string' },
+          state: { type: 'string' },
+          country: { type: 'string' }
         } }
       },
       required: ['name', 'date', 'time', 'eventsPlace']
