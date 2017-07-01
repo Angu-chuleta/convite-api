@@ -57,17 +57,17 @@ export interface IEventTime {
   /**
    * Hora de início do evento
    *
-   * @type {number}
+   * @type {string}
    * @memberof IEventTime
    */
-  start: number
+  start: string
   /**
    * Hora do fim do evento
    *
-   * @type {number}
+   * @type {string}
    * @memberof IEventTime
    */
-  end: number
+  end: string
 }
 
 export interface IEventsPlace extends IAddress {

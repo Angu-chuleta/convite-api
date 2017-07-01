@@ -54,11 +54,19 @@ export class EventDAO extends Models.DAO<IEvent> {
       properties: {
         name: { type: 'string' },
         date: { type: 'string' },
-        time: { type: 'string' },
+        time: { type: 'object', properties: {
+          start: { type: 'string' },
+          end: { type: 'string' }
+        } },
         link: { type: ['string', null] },
-        invitationText: { type: ['string', null] }
+        invitationText: { type: ['string', null] },
+        canceled: { type: 'boolean' },
+        eventsPlace: { type: 'object', properties: {
+          name: { type: 'string' },
+          capacity: { type: 'number' }
+        } }
       },
-      required: ['name', 'date', 'time']
+      required: ['name', 'date', 'time', 'eventsPlace']
     }
     const relations = {
       belongsTo: {}
